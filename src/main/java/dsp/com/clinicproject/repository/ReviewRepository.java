@@ -1,4 +1,7 @@
 package dsp.com.clinicproject.repository;
 
-public interface ReviewRepository {
+import dsp.com.clinicproject.model.Review;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface ReviewRepository extends MongoRepository<Review, String> {
 }
