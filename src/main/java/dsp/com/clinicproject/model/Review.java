@@ -11,7 +11,7 @@ public class Review {
     private String diagnose;
     private double price;
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAd;
+    private LocalDateTime updatedAt;
 
     public Review() {
     }
@@ -37,7 +37,7 @@ public class Review {
 
     public Review(String id, Doctor doctor, Patient patient, LocalDateTime dateOfReview,
                   String diagnose, double price, LocalDateTime createdAt,
-                  LocalDateTime updatedAd) {
+                  LocalDateTime updatedAt) {
         this.id = id;
         this.doctor = doctor;
         this.patient = patient;
@@ -45,7 +45,7 @@ public class Review {
         this.diagnose = diagnose;
         this.price = price;
         this.createdAt = createdAt;
-        this.updatedAd = updatedAd;
+        this.updatedAt = updatedAt;
     }
 
     public String getId() {
@@ -104,11 +104,11 @@ public class Review {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedAd() {
-        return updatedAd;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdatedAd(LocalDateTime updatedAd) {
-        this.updatedAd = updatedAd;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
