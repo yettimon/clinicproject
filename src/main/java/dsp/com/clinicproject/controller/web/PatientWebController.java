@@ -63,7 +63,6 @@ public class PatientWebController {
         patient.setSurname(patientForm.getSurname());
         patient.setBirthDate(patientForm.getBirthDate());
         patientService.create(patient);
-
         model.addAttribute("patient", patientService.getAll());
         return "redirect:/web/patient/list";
     }
@@ -86,6 +85,7 @@ public class PatientWebController {
     public String updatePatient(Model model, @PathVariable("id") String id,
                                @ModelAttribute("patientForm") PatientForm patientForm){
         Patient patient = new Patient();
+        patient.setId(id);
         patient.setName(patientForm.getName());
         patient.setSurname(patientForm.getSurname());
         patient.setBirthDate(patientForm.getBirthDate());

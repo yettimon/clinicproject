@@ -1,5 +1,6 @@
 package dsp.com.clinicproject.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Patient {
@@ -7,27 +8,29 @@ public class Patient {
     private String id;
     private String name;
     private String surname;
-    private LocalDateTime birthDate;
+    private String birthDate;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public Patient() {
     }
 
-    public Patient(String id, String name, String surname, LocalDateTime birthDate) {
+
+
+    public Patient(String id, String name, String surname, String birthDate) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
     }
 
-    public Patient(String name, String surname, LocalDateTime birthDate) {
+    public Patient(String name, String surname, String birthDate) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
     }
 
-    public Patient(String id, String name, String surname, LocalDateTime birthDate,
+    public Patient(String id, String name, String surname, String birthDate,
                    LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
@@ -61,11 +64,11 @@ public class Patient {
         this.surname = surname;
     }
 
-    public LocalDateTime getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDateTime birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

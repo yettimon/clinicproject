@@ -7,34 +7,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-<h1>Hello Frontend</h1>
+<h1> </h1>
 <div>
     <table class="table table-striped table-dark">
         <tr>
-            <th>Name</th>
-            <th>Surname </th>
-            <th>Speciality</th>
-            <th>Category</th>
+            <th>Doctor</th>
+            <th>Patient </th>
+            <th>Date of Review</th>
+            <th>Diagnose</th>
+            <th>Price</th>
             <th>Update</th>
             <th>Delete</th>
         </tr>
         <#list list as item>
             <tr>
-                <td>${item.name}</td>
-                <td>${item.surname}</td>
-                <td>${item.speciality}</td>
-                <td>${item.category}</td>
-                <<td><a href="http://localhost:8081/web/doctor/update/${item.id}">
+                <td>${item.doctor}</td>
+                <td>${item.patient}</td>
+                <td>${item.dateOfReview}</td>
+                <td>${item.Diagnose}</td>
+                <td>${item.Price}</td>
+                <<td><a href="http://localhost:8081/web/review/update/${item.id}">
                         <input type="button" value="update">
                     </a></td>
-                <td><a href="http://localhost:8081/web/doctor/delete/${item.id}">
+                <td><a href="http://localhost:8081/web/review/delete/${item.id}">
                         <input type="button" value="delete">
                     </a> </td>
             </tr>
         </#list>
     </table>
 <
-    <div><a href="http://localhost:8081/web/doctor/create/">
+    <div><a href="http://localhost:8081/web/review/create/">
             <input type="button" value="create">
         </a>
     </div>
