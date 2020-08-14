@@ -1,5 +1,6 @@
 package dsp.com.clinicproject.form;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class PatientForm {
@@ -9,19 +10,19 @@ public class PatientForm {
     private String id;
     private String name;
     private String surname;
-    private LocalDateTime birthDate;
+    private String birthDate;
 
     public PatientForm() {
     }
 
-    public PatientForm(String id, String name, String surname, LocalDateTime birthDate) {
+    public PatientForm(String id, String name, String surname, String birthDate) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
     }
 
-    public PatientForm(String name, String surname, LocalDateTime birthDate) {
+    public PatientForm(String name, String surname, String birthDate) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
@@ -51,11 +52,11 @@ public class PatientForm {
         this.surname = surname;
     }
 
-    public LocalDateTime getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDateTime birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 }

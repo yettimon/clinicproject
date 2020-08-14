@@ -60,7 +60,6 @@ public class DoctorWebController {
         doctor.setCategory(doctorForm.getCategory());
         doctor.setSpeciality(doctorForm.getSpeciality());
         doctorService.create(doctor);
-
         model.addAttribute("doctor", doctorService.getAll());
         return "redirect:/web/doctor/list";
     }
@@ -83,6 +82,7 @@ public class DoctorWebController {
     public String updateDoctor(Model model, @PathVariable("id") String id,
                                 @ModelAttribute("doctorForm") DoctorForm doctorForm){
         Doctor doctor = new Doctor();
+        doctor.setId(id);
         doctor.setName(doctorForm.getName());
         doctor.setSurname(doctorForm.getSurname());
         doctor.setCategory(doctorForm.getCategory());
@@ -91,6 +91,7 @@ public class DoctorWebController {
 
         model.addAttribute("doctorForm", doctorService.getAll());
         return "redirect:/web/doctor/list";
+
     }
 
 
