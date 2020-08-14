@@ -27,13 +27,21 @@ public class ReviewForm {
     }
 
 
-    public ReviewForm(String id, Doctor doctor, Patient patient, LocalDateTime dateOfReview, String diagnose, double price) {
+    public ReviewForm(String id,
+                      Doctor doctor,
+                      Patient patient,
+                      LocalDateTime dateOfReview,
+                      String diagnose,
+                      double price) {
         this.id = id;
         this.doctor = doctor;
         this.patient = patient;
         this.dateOfReview = dateOfReview;
         this.diagnose = diagnose;
         this.price = price;
+    }
+
+    public ReviewForm(String id, Patient patient, Doctor doctor, String diagnose, LocalDateTime dateOfReview) {
     }
 
     public String getId() {

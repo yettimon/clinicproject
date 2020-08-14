@@ -48,4 +48,11 @@ public class PatientServiceImpl implements IPatientService {
     public List getAll(){
         return patientRepository.findAll();
     }
+
+
+    public void reloadDatabase (){
+        //  datafake.init();
+
+
+    }
 }

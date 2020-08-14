@@ -48,4 +48,9 @@ public class ReviewServiceImpl implements IReviewService {
         return reviewRepository.findAll();
     }
 
+    public void reloadDatabase (){
+        //  datafake.init();
+
+
+    }
 }
