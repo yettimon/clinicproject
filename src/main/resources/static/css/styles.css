@@ -10268,3 +10268,8 @@ body {
 .navbar-button-margin{ 
   margin-left: 5px;
  }
+.form-control-inline {
+  min-width: 0;
+  width: auto;
+  display: inline;
+}
