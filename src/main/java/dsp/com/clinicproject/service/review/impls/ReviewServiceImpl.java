@@ -7,11 +7,7 @@ import dsp.com.clinicproject.repository.ReviewRepository;
 import dsp.com.clinicproject.service.review.interfaces.IReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -25,11 +21,6 @@ public class ReviewServiceImpl implements IReviewService {
 
     @Autowired
     PatientRepository patientRepository;
-
-
-    List<Review> reviews;
-
-
 
 
     @Override
@@ -47,7 +38,9 @@ public class ReviewServiceImpl implements IReviewService {
 
     @Override
     public Review update(Review review) {
-        return null;
+
+        review.setUpdatedAt(LocalDateTime.now());
+        return reviewRepository.save(review);
     }
 
     @Override
@@ -56,11 +49,11 @@ public class ReviewServiceImpl implements IReviewService {
         reviewRepository.deleteById(id);
         return review;
     }
-
-
-
     @Override
     public List<Review> getAll() {
         return reviewRepository.findAll();
+    }
+
+    public void reloadDatabase() {
     }
 }

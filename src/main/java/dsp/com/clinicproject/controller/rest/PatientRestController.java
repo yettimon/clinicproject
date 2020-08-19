@@ -1,5 +1,4 @@
 package dsp.com.clinicproject.controller.rest;
-import dsp.com.clinicproject.model.Doctor;
 import dsp.com.clinicproject.model.Patient;
 import dsp.com.clinicproject.service.patient.impls.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

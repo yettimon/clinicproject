@@ -1,24 +1,18 @@
 package dsp.com.clinicproject.controller.rest;
 
-import dsp.com.clinicproject.model.Patient;
 import dsp.com.clinicproject.model.Review;
-import dsp.com.clinicproject.service.patient.impls.PatientServiceImpl;
 import dsp.com.clinicproject.service.review.impls.ReviewServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Map;
 
 @RequestMapping("/api/review")
 @RestController
 public class ReviewRestController {
 
-
     public ReviewRestController(ReviewServiceImpl reviewServiceImpl) {
         this.reviewServiceImpl= reviewServiceImpl;
     }
-
 
     @Autowired
     ReviewServiceImpl reviewServiceImpl;
@@ -48,7 +42,7 @@ public class ReviewRestController {
         return reviewServiceImpl.create(review);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     Review updateReview(@RequestBody Review review) {
         return reviewServiceImpl.create(review);
     }

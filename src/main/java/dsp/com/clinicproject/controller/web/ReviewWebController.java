@@ -1,5 +1,4 @@
 package dsp.com.clinicproject.controller.web;
-import dsp.com.clinicproject.form.PatientForm;
 import dsp.com.clinicproject.form.ReviewForm;
 import dsp.com.clinicproject.model.Doctor;
 import dsp.com.clinicproject.model.Patient;
@@ -16,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.PostConstruct;
+import javax.print.Doc;
 import java.util.HashMap;
 import java.util.Map;
 
 
 @Controller
 @RequestMapping("/web/review")
+
 public class ReviewWebController {
 
     @Autowired
@@ -32,14 +33,20 @@ public class ReviewWebController {
     PatientServiceImpl patientService;
 
 
-    Map<String, String> movs;
-    Map<String, String> movs1;
+    Map<String, String> movs, movs1;
 
     @PostConstruct
     void init(){
 
         movs = new HashMap<>();
         movs1 = new HashMap<>();
+
+        for (Doctor doctor:doctorService.getAll()){
+            movs.put(doctor.getId(),doctor.getName());
+        }
+        for (Patient patient:patientService.getAll()){
+            movs1.put(patient.getId(),patient.getName());
+        }
 
     }
 
@@ -63,7 +70,7 @@ public class ReviewWebController {
     @RequestMapping(value = "/reloadDB", method = RequestMethod.GET)
     String reloadDataBase()
     {
-        //reviewService.reloadDatabase();
+        reviewService.reloadDatabase();
         return "redirect:/web/review/list";
     }
 
@@ -100,17 +107,10 @@ public class ReviewWebController {
         return "redirect:/web/review/list";
     }
 
-@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
-    public String updateReview(@PathVariable("id") String id,Model model) {
-        Review review = reviewService.get(id);
 
-    for (Doctor doctor:doctorService.getAll()) {
-        movs.put(doctor.getId(), doctor.getName());
-    }
-    for(Patient patient:patientService.getAll())
-    {
-        movs1.put(patient.getId(),patient.getName());
-    }
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public String updateReviewList(@PathVariable("id") String id, Model model){
+        Review review = reviewService.get(id);
         ReviewForm reviewForm = new ReviewForm(
                 review.getId(),
                 review.getDoctor(),
@@ -119,25 +119,28 @@ public class ReviewWebController {
                 review.getDiagnose(),
                 review.getPrice()
         );
+
         model.addAttribute("movs",movs);
         model.addAttribute("movs1",movs1);
         model.addAttribute("reviewForm", reviewForm);
-        return "updateReviewList";
-        }
-
+        return "addReviewList";
+    }
 
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     public String updateReview(Model model, @PathVariable("id") String id,
                                @ModelAttribute("reviewForm") ReviewForm reviewForm){
         Review review = new Review();
+        review.setId(id);
         review.setPatient(reviewForm.getPatient());
         review.setDoctor(reviewForm.getDoctor());
         review.setDiagnose(reviewForm.getDiagnose());
         review.setDateOfReview(reviewForm.getDateOfReview());
         review.setPrice(reviewForm.getPrice());
-        reviewService.create(review);
+        reviewService.update(review);
 
+        model.addAttribute("movs",movs);
+        model.addAttribute("movs1",movs1);
         model.addAttribute("reviewForm", reviewService.getAll());
         return "redirect:/web/review/list";
     }
