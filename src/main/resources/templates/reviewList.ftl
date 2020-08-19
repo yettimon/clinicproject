@@ -54,6 +54,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Admin panel for clinic</title>
     <#include "cssImports.ftl">
+    <script>
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        // Bar Chart Example
+        var ctx = document.getElementById("myBarChart1");
+        var reviewPrice=[<#list list as item>${item.price},</#list>]
+        var diagnosePrice=[<#list list as item>"${item.diagnose}",</#list>]
+        var myLineChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [diagnosePrice],
+                datasets: [{
+                    label: "Revenue",
+                    backgroundColor: "rgba(2,117,216,1)",
+                    borderColor: "rgba(2,117,216,1)",
+                    data: [reviewPrice],
+                }],
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'month'
+                        },
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 6
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 15000,
+                            maxTicksLimit: 5
+                        },
+                        gridLines: {
+                            display: true
+                        }
+                    }],
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+    </script>
 </head>
 <body class="sb-nav-fixed">
 <#include "header.ftl">
@@ -68,8 +115,15 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    Place for chart
-                    <!-- Area chart example -->
+                    <div class="col-xl-12">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-bar mr-1"></i>
+                                Bar Chart 2
+                            </div>
+                            <div class="card-body"><canvas id="myBarChart1" width="100%" height="40"></canvas></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card mb-4">
@@ -79,7 +133,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="myTableTest" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
                                 <th>Doctor</th>

@@ -31,7 +31,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="myTableTest" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -44,7 +44,7 @@
                                 <tbody>
                                 <#list list as item>
                                         <tr>
-                                            <td class="sorting-1">${item.name}</td>
+                                            <td>${item.name}</td>
                                             <td>${item.speciality}</td>
                                             <td>${item.category}</td>
                                             <td><a href="http://localhost:8081/web/doctor/update/${item.id}">

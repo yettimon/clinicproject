@@ -3,4 +3,7 @@
       href="<@spring.url '/css/styles.css'/>"/>
 <link rel="stylesheet"
       type="text/css"
-      href="<@spring.url '//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css'/>"/>
+      href="<@spring.url 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css'/>"/>
+<link rel="stylesheet"
+      type="text/css"
+      href="<@spring.url 'https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css'/>"/>
