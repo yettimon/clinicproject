@@ -13,7 +13,7 @@
         <tr>
             <th>Doctor</th>
             <th>Patient </th>
-            <th>Date of Review</th>
+            <th>Date of review</th>
             <th>Diagnose</th>
             <th>Price</th>
             <th>Update</th>
@@ -21,12 +21,12 @@
         </tr>
         <#list list as item>
             <tr>
-                <td>${item.doctor}</td>
-                <td>${item.patient}</td>
+                <td>${item.doctor.name}</td>
+                <td>${item.patient.name}</td>
                 <td>${item.dateOfReview}</td>
-                <td>${item.Diagnose}</td>
-                <td>${item.Price}</td>
-                <<td><a href="http://localhost:8081/web/review/update/${item.id}">
+                <td>${item.diagnose}</td>
+                <td>${item.price}</td>
+                -<td><a href="http://localhost:8081/web/review/update/${item.id}">
                         <input type="button" value="update">
                     </a></td>
                 <td><a href="http://localhost:8081/web/review/delete/${item.id}">

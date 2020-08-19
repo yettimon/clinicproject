@@ -11,19 +11,17 @@
 
 <div>
     <fieldset>
-
-
         <legend>Update review value</legend>
         <form name="review" action="" method="POST">
-            Doctor:<@spring.formInput "reviewForm.doctor" "" "text"/>
+            Doctor:<@spring.formSingleSelect "reviewForm.doctor", movs, ""/>
             <br>
-            Patient:<@spring.formInput "reviewForm.patient" "" "text"/>
+            Doctor:<@spring.formSingleSelect "reviewForm.patient", movs1, ""/>
             <br>
             Date of Review:<@spring.formInput "reviewForm.dateOfReview" "" "text"/>
             <br>
-            Diagnose:<@spring.formInput "reviewForm.Diagnose" "" "text"/>
+            Diagnose:<@spring.formInput "reviewForm.diagnose" "" "text"/>
             <br>
-            Price:<@spring.formInput "reviewForm.Price" "" "text"/>
+            Price:<@spring.formInput "reviewForm.price" "" "text"/>
             <br>
             <input type="submit" value="Update"/>
         </form>

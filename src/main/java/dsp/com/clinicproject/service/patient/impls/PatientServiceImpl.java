@@ -1,5 +1,6 @@
 package dsp.com.clinicproject.service.patient.impls;
 
+import dsp.com.clinicproject.datastorage.DataFake;
 import dsp.com.clinicproject.model.Doctor;
 import dsp.com.clinicproject.model.Patient;
 import dsp.com.clinicproject.repository.DoctorRepository;
@@ -9,6 +10,7 @@ import dsp.com.clinicproject.service.patient.interfaces.IPatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class PatientServiceImpl implements IPatientService {
 
     @Autowired
     PatientRepository patientRepository;
+
+    @Autowired
+    DataFake dataFake;
 
     @Override
     public Patient create(Patient patient) {
@@ -45,13 +50,13 @@ public class PatientServiceImpl implements IPatientService {
     }
 
     @Override
-    public List getAll(){
+    public List<Patient> getAll(){
         return patientRepository.findAll();
     }
 
 
     public void reloadDatabase (){
-        //  datafake.init();
+          dataFake.init();
 
 
     }
