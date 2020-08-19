@@ -1,13 +1,18 @@
 package dsp.com.clinicproject.model;
 
-import java.time.LocalDateTime;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+@Document
 public class Review {
 
+
+    @Id
     private String id;
     private Doctor doctor;
     private Patient patient;
-    private LocalDateTime dateOfReview;
+    private String dateOfReview;
     private String diagnose;
     private double price;
     private LocalDateTime createdAt;
@@ -17,7 +22,7 @@ public class Review {
     }
 
     public Review(String id, Doctor doctor, Patient patient,
-                  LocalDateTime dateOfReview, String diagnose, double price) {
+                  String dateOfReview, String diagnose, double price) {
         this.id = id;
         this.doctor = doctor;
         this.patient = patient;
@@ -26,7 +31,7 @@ public class Review {
         this.price = price;
     }
 
-    public Review(Doctor doctor, Patient patient, LocalDateTime dateOfReview,
+    public Review(Doctor doctor, Patient patient, String dateOfReview,
                   String diagnose, double price) {
         this.doctor = doctor;
         this.patient = patient;
@@ -35,7 +40,7 @@ public class Review {
         this.price = price;
     }
 
-    public Review(String id, Doctor doctor, Patient patient, LocalDateTime dateOfReview,
+    public Review(String id, Doctor doctor, Patient patient, String dateOfReview,
                   String diagnose, double price, LocalDateTime createdAt,
                   LocalDateTime updatedAt) {
         this.id = id;
@@ -72,11 +77,11 @@ public class Review {
         this.patient = patient;
     }
 
-    public LocalDateTime getDateOfReview() {
+    public String getDateOfReview() {
         return dateOfReview;
     }
 
-    public void setDateOfReview(LocalDateTime dateOfReview) {
+    public void setDateOfReview(String dateOfReview) {
         this.dateOfReview = dateOfReview;
     }
 
@@ -111,4 +116,20 @@ public class Review {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id='" + id + '\'' +
+                ", doctor=" + doctor +
+                ", patient=" + patient +
+                ", dateOfReview=" + dateOfReview +
+                ", diagnose='" + diagnose + '\'' +
+                ", price=" + price +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
+
+
 }

@@ -5,7 +5,6 @@ public class DoctorForm {
 
     private String id;
     private String name;
-    private String surname;
     private String speciality;
     private String category;
 
@@ -13,19 +12,17 @@ public class DoctorForm {
     public DoctorForm() {
     }
 
-    public DoctorForm(String id, String name, String surname, String speciality, String category) {
+    public DoctorForm(String id, String name, String speciality, String category) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
         this.speciality = speciality;
         this.category = category;
 
 
     }
 
-    public DoctorForm(String name, String surname, String speciality, String category) {
+    public DoctorForm(String name,  String speciality, String category) {
         this.name = name;
-        this.surname = surname;
         this.speciality = speciality;
         this.category = category;
     }
@@ -44,14 +41,6 @@ public class DoctorForm {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getSpeciality() {

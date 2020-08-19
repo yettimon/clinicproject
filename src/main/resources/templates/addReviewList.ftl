@@ -13,9 +13,9 @@
     <fieldset>
         <legend>Add review</legend>
         <form name="review" action="" method="POST">
-            Doctor:<@spring.formInput "reviewForm.doctor" "" "text"/>
+            Doctor:<@spring.formSingleSelect "reviewForm.doctor", movs, ""/>
             <br>
-            Patient:<@spring.formInput "reviewForm.patient" "" "text"/>
+            Patient:<@spring.formSingleSelect "reviewForm.patient", movs1, ""/>
             <br>
             Date of Review:<@spring.formInput "reviewForm.dateOfReview" "" "text"/>
             <br>

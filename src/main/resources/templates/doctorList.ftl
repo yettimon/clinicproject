@@ -12,7 +12,6 @@
     <table class="table table-striped table-dark">
         <tr>
             <th>Name</th>
-            <th>Surname </th>
             <th>Speciality</th>
             <th>Category</th>
             <th>Update</th>
@@ -21,7 +20,6 @@
         <#list list as item>
             <tr>
                 <td>${item.name}</td>
-                <td>${item.surname}</td>
                 <td>${item.speciality}</td>
                 <td>${item.category}</td>
                 <<td><a href="http://localhost:8081/web/doctor/update/${item.id}">
