@@ -60,7 +60,6 @@ public class PatientWebController {
     public String createPatient(Model model, @ModelAttribute("patientForm") PatientForm patientForm){
         Patient patient = new Patient();
         patient.setName(patientForm.getName());
-        patient.setSurname(patientForm.getSurname());
         patient.setBirthDate(patientForm.getBirthDate());
         patientService.create(patient);
         model.addAttribute("patient", patientService.getAll());
@@ -73,9 +72,7 @@ public class PatientWebController {
         PatientForm patientForm = new PatientForm(
                 patient.getId(),
                 patient.getName(),
-                patient.getSurname(),
                 patient.getBirthDate()
-
         );
         model.addAttribute("patientForm", patientForm);
         return "updatePatientList";
@@ -87,7 +84,6 @@ public class PatientWebController {
         Patient patient = new Patient();
         patient.setId(id);
         patient.setName(patientForm.getName());
-        patient.setSurname(patientForm.getSurname());
         patient.setBirthDate(patientForm.getBirthDate());
         patientService.create(patient);
 

@@ -1,13 +1,13 @@
 package dsp.com.clinicproject.model;
-
-import java.time.LocalDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
-
+@Document
 public class Patient {
 
+    @Id
     private String id;
     private String name;
-    private String surname;
     private String birthDate;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -17,16 +17,14 @@ public class Patient {
 
 
 
-    public Patient(String id, String name, String surname, String birthDate) {
+    public Patient(String id, String name, String birthDate) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
         this.birthDate = birthDate;
     }
 
-    public Patient(String name, String surname, String birthDate) {
+    public Patient(String name,  String birthDate) {
         this.name = name;
-        this.surname = surname;
         this.birthDate = birthDate;
     }
 
@@ -34,7 +32,6 @@ public class Patient {
                    LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
         this.birthDate = birthDate;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -56,13 +53,7 @@ public class Patient {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
     public String getBirthDate() {
         return birthDate;

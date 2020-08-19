@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 @RequestMapping("/api/review")
 @RestController
 public class ReviewRestController {
@@ -41,12 +43,12 @@ public class ReviewRestController {
         return reviewServiceImpl.get(id);
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.PUT)
     Review createReview(@RequestBody Review review) {
         return reviewServiceImpl.create(review);
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     Review updateReview(@RequestBody Review review) {
         return reviewServiceImpl.create(review);
     }

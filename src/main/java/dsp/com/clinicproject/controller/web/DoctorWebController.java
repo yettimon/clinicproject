@@ -56,7 +56,6 @@ public class DoctorWebController {
     public String createDoctor(Model model, @ModelAttribute("doctorForm") DoctorForm doctorForm){
         Doctor doctor = new Doctor();
         doctor.setName(doctorForm.getName());
-        doctor.setSurname(doctorForm.getSurname());
         doctor.setCategory(doctorForm.getCategory());
         doctor.setSpeciality(doctorForm.getSpeciality());
         doctorService.create(doctor);
@@ -70,7 +69,6 @@ public class DoctorWebController {
         DoctorForm doctorForm = new DoctorForm(
                 doctor.getId(),
                 doctor.getName(),
-                doctor.getSurname(),
                 doctor.getCategory(),
                 doctor.getSpeciality()
         );
@@ -84,7 +82,6 @@ public class DoctorWebController {
         Doctor doctor = new Doctor();
         doctor.setId(id);
         doctor.setName(doctorForm.getName());
-        doctor.setSurname(doctorForm.getSurname());
         doctor.setCategory(doctorForm.getCategory());
         doctor.setSpeciality(doctorForm.getSpeciality());
         doctorService.create(doctor);

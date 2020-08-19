@@ -15,8 +15,6 @@
         <form name="doctor" action="" method="POST">
             Name:<@spring.formInput "doctorForm.name" "" "text"/>
             <br>
-            Surname:<@spring.formInput "doctorForm.surname" "" "text"/>
-            <br>
             Speciality:<@spring.formInput "doctorForm.speciality" "" "text"/>
             <br>
             Category:<@spring.formInput "doctorForm.category" "" "text"/>

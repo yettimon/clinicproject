@@ -3,12 +3,9 @@ package dsp.com.clinicproject.service.doctor.impls;
 import dsp.com.clinicproject.datastorage.DataFake;
 import dsp.com.clinicproject.model.Doctor;
 import dsp.com.clinicproject.repository.DoctorRepository;
-import dsp.com.clinicproject.repository.ReviewRepository;
 import dsp.com.clinicproject.service.doctor.interfaces.IDoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.print.Doc;
 import java.time.LocalDateTime;
 import java.util.List;
 @Service
@@ -47,13 +44,13 @@ public class DoctorServiceImpl implements IDoctorService {
     }
 
     @Override
-    public List getAll(){
+    public List<Doctor> getAll(){
         return doctorRepository.findAll();
     }
 
 
    public void reloadDatabase (){
- //  datafake.init();
+  dataFake.init();
 
 
    }

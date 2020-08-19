@@ -15,8 +15,6 @@
         <form name="Patient" action="" method="POST">
             Name:<@spring.formInput "patientForm.name" "" "text"/>
             <br>
-            Surname:<@spring.formInput "patientForm.surname" "" "text"/>
-            <br>
             birthDate:<@spring.formInput "patientForm.birthDate" "" "text"/>
             <br>
             <input type="submit" value="Create"/>
