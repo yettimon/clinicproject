@@ -15,7 +15,7 @@
         <form name="review" action="" method="POST">
             Doctor:<@spring.formSingleSelect "reviewForm.doctor", movs, ""/>
             <br>
-            Doctor:<@spring.formSingleSelect "reviewForm.patient", movs1, ""/>
+            Patient:<@spring.formSingleSelect "reviewForm.patient", movs1, ""/>
             <br>
             Date of Review:<@spring.formInput "reviewForm.dateOfReview" "" "text"/>
             <br>
@@ -23,7 +23,7 @@
             <br>
             Price:<@spring.formInput "reviewForm.price" "" "text"/>
             <br>
-            <input type="submit" value="Update"/>
+            <input type="submit" value="Create"/>
         </form>
     </fieldset>
 </div>
