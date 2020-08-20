@@ -55,11 +55,9 @@
     <title>Admin panel for clinic</title>
     <#include "cssImports.ftl">
     <script>
-        // Set new default font family and font color to mimic Bootstrap's default styling
-        // Bar Chart Example
         var ctx = document.getElementById("myBarChart1");
-        var reviewPrice=[<#list list as item>${item.price},</#list>]
-        var diagnosePrice=[<#list list as item>"${item.diagnose}",</#list>]
+        var diagnosePrice=[<#list list as item>${item.diagnose}<#sep>, </#sep></#list>];
+        var reviewPrice = [<#list list as item>${item.price}<#sep>, </#sep></#list>];
         var myLineChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -87,7 +85,7 @@
                     yAxes: [{
                         ticks: {
                             min: 0,
-                            max: 15000,
+                            max: 1000,
                             maxTicksLimit: 5
                         },
                         gridLines: {
